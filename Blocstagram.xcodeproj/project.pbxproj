@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220758C41AED65F30000CC71 /* BLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 220758C31AED65F30000CC71 /* BLCUser.m */; };
+		220758C71AED66F70000CC71 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 220758C61AED66F70000CC71 /* BLCMedia.m */; };
+		220758CA1AED67980000CC71 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 220758C91AED67980000CC71 /* BLCComment.m */; };
+		220758CD1AED682C0000CC71 /* BLCDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 220758CC1AED682C0000CC71 /* BLCDatasource.m */; };
 		22167DB61AE6DF1900664102 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22167DB51AE6DF1900664102 /* main.m */; };
 		22167DB91AE6DF1900664102 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22167DB81AE6DF1900664102 /* AppDelegate.m */; };
 		22167DBB1AE6DF1900664102 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22167DBA1AE6DF1900664102 /* Images.xcassets */; };
@@ -36,6 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220758C21AED65F30000CC71 /* BLCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCUser.h; sourceTree = "<group>"; };
+		220758C31AED65F30000CC71 /* BLCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCUser.m; sourceTree = "<group>"; };
+		220758C51AED66F70000CC71 /* BLCMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMedia.h; sourceTree = "<group>"; };
+		220758C61AED66F70000CC71 /* BLCMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMedia.m; sourceTree = "<group>"; };
+		220758C81AED67980000CC71 /* BLCComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCComment.h; sourceTree = "<group>"; };
+		220758C91AED67980000CC71 /* BLCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComment.m; sourceTree = "<group>"; };
+		220758CB1AED682C0000CC71 /* BLCDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCDatasource.h; sourceTree = "<group>"; };
+		220758CC1AED682C0000CC71 /* BLCDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDatasource.m; sourceTree = "<group>"; };
 		22167DB01AE6DF1900664102 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22167DB41AE6DF1900664102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22167DB51AE6DF1900664102 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; };
@@ -81,8 +93,16 @@
 		22167DA71AE6DF1800664102 = {
 			isa = PBXGroup;
 			children = (
+				220758C81AED67980000CC71 /* BLCComment.h */,
+				220758C91AED67980000CC71 /* BLCComment.m */,
+				220758CB1AED682C0000CC71 /* BLCDatasource.h */,
+				220758CC1AED682C0000CC71 /* BLCDatasource.m */,
+				220758C51AED66F70000CC71 /* BLCMedia.h */,
+				220758C61AED66F70000CC71 /* BLCMedia.m */,
 				22167DE81AE86E6B00664102 /* BLCImagesTableViewController.h */,
 				22167DE91AE86E6B00664102 /* BLCImagesTableViewController.m */,
+				220758C21AED65F30000CC71 /* BLCUser.h */,
+				220758C31AED65F30000CC71 /* BLCUser.m */,
 				22167DB21AE6DF1900664102 /* Blocstagram */,
 				22167DC61AE6DF1900664102 /* BlocstagramTests */,
 				22167DB11AE6DF1900664102 /* Products */,
@@ -264,9 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220758C41AED65F30000CC71 /* BLCUser.m in Sources */,
 				22167DB91AE6DF1900664102 /* AppDelegate.m in Sources */,
 				22167DB61AE6DF1900664102 /* main.m in Sources */,
 				22167DEA1AE86E6B00664102 /* BLCImagesTableViewController.m in Sources */,
+				220758CD1AED682C0000CC71 /* BLCDatasource.m in Sources */,
+				220758C71AED66F70000CC71 /* BLCMedia.m in Sources */,
+				220758CA1AED67980000CC71 /* BLCComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +479,7 @@
 				22167DCF1AE6DF1900664102 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22167DD01AE6DF1900664102 /* Build configuration list for PBXNativeTarget "BlocstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +488,7 @@
 				22167DD21AE6DF1900664102 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
