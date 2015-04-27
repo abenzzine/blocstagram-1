@@ -14,7 +14,7 @@
 
 @interface BLCImagesTableViewController ()
 
-@property (nonatomic, strong) NSArray *mediaItems;
+@property (nonatomic, strong) NSMutableArray *items;
 
 @end
 
@@ -29,6 +29,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.items = [BLCDatasource sharedInstance].mediaItems;
         
     }
     return self;
@@ -95,7 +96,7 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BLCMedia *item = [self items][indexPath.row];
+    BLCMedia *item = self.items[indexPath.row];
     UIImage *image = item.image;
     
     return image.size.height / image.size.width * CGRectGetWidth(self.view.frame);
@@ -116,9 +117,11 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
      
         // Delete the row from data source
-           [[self items] removeObjectAtIndex:indexPath.row];
+        [self.items removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    } else if (editingStyle == UITableViewCellEditingStyleInsert)
+        [tableView reloadData];
+    {
         
         
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
