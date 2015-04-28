@@ -10,6 +10,4 @@
 
 @interface BLCImagesTableViewController : UITableViewController
 
-
-
 @end
