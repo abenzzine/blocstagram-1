@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
 
 @interface BLCDatasource : NSObject
 
     +(instancetype) sharedInstance;
-@property (nonatomic, strong, readonly) NSMutableArray *mediaItems;
+
+@property (nonatomic, strong, readonly) NSArray *mediaItems;
 
 @end

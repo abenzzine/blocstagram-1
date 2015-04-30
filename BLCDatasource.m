@@ -13,13 +13,13 @@
 
 @interface BLCDatasource ()
 
-@property (nonatomic, strong) NSMutableArray *mediaItems;
+@property (nonatomic, strong) NSArray *mediaItems;
 
 @end
 
 @implementation BLCDatasource
 
-+(instancetype) sharedInstance {
++ (instancetype) sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
     dispatch_once(&once, ^{
@@ -28,7 +28,7 @@
     return sharedInstance;
 }
 
-- (instancetype) init{
+- (instancetype) init {
     self = [super init];
     
     if (self) {
@@ -47,10 +47,11 @@
         
         if (image) {
             BLCMedia *media = [[BLCMedia alloc] init];
+            
             media.user = [self randomUser];
             media.image = image;
             
-            NSUInteger commentCount = arc4random_uniform(10);
+            NSUInteger commentCount = arc4random_uniform(10) + 1;
             NSMutableArray *randomComments = [NSMutableArray array];
             
             for (int i  = 0; i <= commentCount; i++) {
@@ -70,12 +71,11 @@
 - (BLCUser *) randomUser {
     BLCUser *user = [[BLCUser alloc] init];
     
-    user.userName = [self randomStringOfLength:arc4random_uniform(10)];
+    user.userName = [self randomStringOfLength:arc4random_uniform(10) + 1];
     
-    NSString *firstName = [self randomStringOfLength:arc4random_uniform(7)];
-    NSString *lastName = [self randomStringOfLength:arc4random_uniform(12)];
+    NSString *firstName = [self randomStringOfLength:arc4random_uniform(7) + 1];
+    NSString *lastName = [self randomStringOfLength:arc4random_uniform(12) + 1];
     user.fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    
     return user;
 }
 
@@ -89,7 +89,7 @@
     NSMutableString *randomSentence = [[NSMutableString alloc] init];
     
     for (int i  = 0; i <= wordCount; i++) {
-        NSString *randomWord = [self randomStringOfLength:arc4random_uniform(12)];
+        NSString *randomWord = [self randomStringOfLength:arc4random_uniform(12) + 1];
         [randomSentence appendFormat:@"%@ ", randomWord];
     }
     
