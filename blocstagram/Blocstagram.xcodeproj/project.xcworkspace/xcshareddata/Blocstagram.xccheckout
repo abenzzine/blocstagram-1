@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>ADB0B54C-2C70-4FA4-A69E-D8311FE59922</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Blocstagram</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0CAB0F0D08A39E4E63FFF105C78440B7CADA41D5</key>
+		<string>github.com:leahpadgett/blocbrowser.git</string>
+		<key>745AFEECFF432C1B2CFDCF818EAC032A65792CFB</key>
+		<string>https://github.com/leahpadgett/blocstagram.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Blocstagram.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0CAB0F0D08A39E4E63FFF105C78440B7CADA41D5</key>
+		<string>../../..</string>
+		<key>745AFEECFF432C1B2CFDCF818EAC032A65792CFB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/leahpadgett/blocstagram.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>745AFEECFF432C1B2CFDCF818EAC032A65792CFB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0CAB0F0D08A39E4E63FFF105C78440B7CADA41D5</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>745AFEECFF432C1B2CFDCF818EAC032A65792CFB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Blocstagram</string>
+		</dict>
+	</array>
+</dict>
+</plist>
