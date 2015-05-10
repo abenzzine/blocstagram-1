@@ -10,6 +10,8 @@
 
 @class BLCMedia;
 
+typedef void (^NewItemCompletionBlock)(NSError *error);
+
 @interface BLCDatasource : NSObject
 
     +(instancetype) sharedInstance;
@@ -18,4 +20,6 @@
 
 -(void) deleteMediaItem:(BLCMedia *)item;
 
+
+- (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
 @end
