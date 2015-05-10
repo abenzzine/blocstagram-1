@@ -106,7 +106,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [BLCDatasource sharedInstance].mediaItems.count;;
+    return [self items].count;;
 }
 
 
@@ -116,7 +116,7 @@
     // Configure the cell...
     
     BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
-    cell.mediaItem = [BLCDatasource sharedInstance].mediaItems[indexPath.row];
+    cell.mediaItem = [self items][indexPath.row];
     
     return cell;
 }
@@ -162,6 +162,9 @@
     [[BLCDatasource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
 }
 
+-(NSArray *) items{
+    return[BLCDatasource sharedInstance].mediaItems;
+}
 /*
  // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
