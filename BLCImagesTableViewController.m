@@ -104,7 +104,7 @@
     
         if (bottomIndexPath && bottomIndexPath.row == [BLCDatasource sharedInstance].mediaItems.count - 1) {
                 // The very last cell is on screen
-                [[BLCDatasource sharedInstance] requestOldItemsWithCompletionHandler:nil];
+                [[BLCDatasource sharedInstance] requestNewItemsWithCompletionHandler:nil];
             }
     }
 
@@ -133,7 +133,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self items].count;;
+    return [self items].count;
 }
 
 
@@ -184,10 +184,11 @@
     }
 }
 
-- (void) dealloc
-{
-    [[BLCDatasource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
-}
+//- (void) dealloc
+//{
+//    [[BLCDatasource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
+//}
+
 
 -(NSArray *) items{
     return[BLCDatasource sharedInstance].mediaItems;

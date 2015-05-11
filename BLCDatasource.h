@@ -14,12 +14,20 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 @interface BLCDatasource : NSObject
 
-    +(instancetype) sharedInstance;
++(instancetype) sharedInstance;
+
++(NSString *) instagramClientID;
+
+@property (nonatomic, strong, readonly) NSString *accessToken;
+
 
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 
 -(void) deleteMediaItem:(BLCMedia *)item;
 
-
+- (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
+
+
+
 @end

@@ -28,6 +28,7 @@
 		22167DE71AE86DC200664102 /* 10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 22167DDD1AE86DC200664102 /* 10.JPG */; };
 		22167DEA1AE86E6B00664102 /* BLCImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22167DE91AE86E6B00664102 /* BLCImagesTableViewController.m */; };
 		22362BB71AEEF78700E67317 /* BLCMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22362BB61AEEF78700E67317 /* BLCMediaTableViewCell.m */; };
+		D76D62851AFFBB1000773580 /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76D62841AFFBB1000773580 /* BLCLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		22167DE91AE86E6B00664102 /* BLCImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCImagesTableViewController.m; sourceTree = "<group>"; };
 		22362BB51AEEF78700E67317 /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaTableViewCell.h; sourceTree = "<group>"; };
 		22362BB61AEEF78700E67317 /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCell.m; sourceTree = "<group>"; };
+		D76D62831AFFBB1000773580 /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
+		D76D62841AFFBB1000773580 /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				22167DE91AE86E6B00664102 /* BLCImagesTableViewController.m */,
 				220758CB1AED682C0000CC71 /* BLCDatasource.h */,
 				220758CC1AED682C0000CC71 /* BLCDatasource.m */,
+				D76D62831AFFBB1000773580 /* BLCLoginViewController.h */,
+				D76D62841AFFBB1000773580 /* BLCLoginViewController.m */,
 				220758C51AED66F70000CC71 /* BLCMedia.h */,
 				220758C61AED66F70000CC71 /* BLCMedia.m */,
 				22362BB51AEEF78700E67317 /* BLCMediaTableViewCell.h */,
@@ -298,6 +303,7 @@
 				220758C71AED66F70000CC71 /* BLCMedia.m in Sources */,
 				22362BB71AEEF78700E67317 /* BLCMediaTableViewCell.m in Sources */,
 				220758CA1AED67980000CC71 /* BLCComment.m in Sources */,
+				D76D62851AFFBB1000773580 /* BLCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
