@@ -18,6 +18,8 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 +(NSString *) instagramClientID;
 
+@property (nonatomic, assign) BOOL thereAreNoMoreOlderMessages;
+
 @property (nonatomic, strong, readonly) NSString *accessToken;
 
 

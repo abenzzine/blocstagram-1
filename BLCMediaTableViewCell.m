@@ -10,6 +10,8 @@
 #import "BLCMedia.h"
 #import "BLCComment.h"
 #import "BLCUser.h"
+#import "BLCDatasource.h"
+
 
 
 @interface BLCMediaTableViewCell ()
@@ -108,23 +110,23 @@ static NSParagraphStyle *paragraphStyle;
     return self;
 }
 
-- (void) layoutSubviews {
+-(void) layoutSubviews {
     [super layoutSubviews];
     
-    // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
-    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
-    CGSize mediaImageSize = CGSizeMake(CGRectGetWidth(self.bounds), self.mediaImageView.image.size.height / self.mediaImageView.image.size.width * CGRectGetWidth(self.bounds));
-    CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
-    CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
+
+         // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
+        CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
+        CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
+         CGSize commentLabelSize = [self.commentLabel sizeThatFits:maxSize];
     
-    self.imageHeightConstraint.constant = mediaImageSize.height;
-    self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
-    self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
-    
-    // Hide the line between cells - http://johnszumski.com/blog/hiding-table-separators-on-a-cell-by-cell-basis
-    self.separatorInset  = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
-    //UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
+         self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
+         self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
+         self.imageHeightConstraint.constant = self.mediaItem.image.size.height/2;
+         // Hide the line between cells
+         self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
 }
+
+
 
 + (CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width {
     
@@ -148,8 +150,33 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
     
-    self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    if (_mediaItem.image) {
+        self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    } else {
+        self.imageHeightConstraint.constant = 0;
+    }
 }
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+       [super setHighlighted:NO animated:animated];
+    }
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    
+       [super setSelected:NO animated:animated];
+    
+    // Configure the view for the selected state
+}
+
+//- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    BLCMedia *item = [BLCDatasource sharedInstance].mediaItems[indexPath.row];
+//    if (item.image) {
+//        return 350;
+//    } else {
+//        return 150;
+//    }
+//}
 
 - (NSAttributedString *) usernameAndCaptionString {
     CGFloat usernameFontSize = 15;
@@ -189,10 +216,5 @@ static NSParagraphStyle *paragraphStyle;
 }
 
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
 
 @end
