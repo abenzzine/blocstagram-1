@@ -56,7 +56,7 @@
     return self;
 }
 -(void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
-        NSLog(@":%@", feedDictionary);
+        //NSLog(@":%@", feedDictionary);
         NSArray *mediaArray = feedDictionary[@"data"];
     
         NSMutableArray *tmpMediaItems = [NSMutableArray array];
