@@ -27,6 +27,8 @@
         [BLCDatasource sharedInstance]; // create the data source (so it can receive the access token notification)
     
         UINavigationController *navVC = [[UINavigationController alloc] init];
+    
+        if (![BLCDatasource sharedInstance].accessToken) {
         BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init];
         [navVC setViewControllers:@[loginVC] animated:YES];
     
@@ -34,7 +36,10 @@
                 BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc] init];
                 [navVC setViewControllers:@[imagesVC] animated:YES];
             }];
-    
+               } else {
+                    BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc] init];
+                    [navVC setViewControllers:@[imagesVC] animated:YES];
+                   }
         self.window.rootViewController = navVC;
     
     [self.window makeKeyAndVisible];
