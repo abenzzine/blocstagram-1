@@ -153,6 +153,14 @@
     return cell;
 }
 
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+        BLCMedia *mediaItem = [BLCDatasource sharedInstance].mediaItems[indexPath.row];
+        if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+                [[BLCDatasource sharedInstance] downloadImageForMediaItem:mediaItem];
+            }
+    }
+
+
 #pragma mark - MediaTableViewCellDelegate
 
 - (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
