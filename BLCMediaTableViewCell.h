@@ -8,13 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@class BLCMedia;
+
+@class BLCMedia, BLCMediaTableViewCell;
+
+@protocol MediaTableViewCellDelegate <NSObject>
+
+
+- (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
+
+@end
 
 @interface BLCMediaTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) BLCMedia *mediaItem;
+@property (nonatomic, weak) id <MediaTableViewCellDelegate> delegate;
 
-+ (CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
++(CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width;
 
 
 @end

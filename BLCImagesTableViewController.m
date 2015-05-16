@@ -13,8 +13,11 @@
 #import "BLCUser.h"
 #import "BLCComment.h"
 #import "BLCMediaTableViewCell.h"
+#import "BLCComment.h"
+#import "BLCMediaTableViewCell.h"
+#import "BLCMediaFullScreenViewController.h"
 
-@interface BLCImagesTableViewController ()
+@interface BLCImagesTableViewController () <MediaTableViewCellDelegate>
 
 @end
 
@@ -144,9 +147,19 @@
     
     BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.mediaItem = [self items][indexPath.row];
-    
+    cell.delegate = self;
+    cell.mediaItem = [BLCDatasource sharedInstance].mediaItems[indexPath.row];
+
     return cell;
 }
+
+#pragma mark - MediaTableViewCellDelegate
+
+- (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
+        BLCMediaFullScreenViewController *fullScreenVC = [[BLCMediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
+    
+    [self presentViewController:fullScreenVC animated:YES completion:nil];
+    }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //return 300;
