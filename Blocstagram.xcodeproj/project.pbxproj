@@ -31,6 +31,8 @@
 		D1521F4327F1530D275703CB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA246F55BDFC0F41884C3BF /* libPods.a */; };
 		D76D62851AFFBB1000773580 /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76D62841AFFBB1000773580 /* BLCLoginViewController.m */; };
 		D790FEB11B058881005F27E9 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D790FEB01B058881005F27E9 /* BLCMediaFullScreenViewController.m */; };
+		D7EA2D4A1B08CE70007107CC /* BLCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA2D491B08CE70007107CC /* BLCLikeButton.m */; };
+		D7EA2D4D1B08CFB1007107CC /* BLCCircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EA2D4C1B08CFB1007107CC /* BLCCircleSpinnerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,10 @@
 		D76D62841AFFBB1000773580 /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
 		D790FEAF1B058881005F27E9 /* BLCMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenViewController.h; sourceTree = "<group>"; };
 		D790FEB01B058881005F27E9 /* BLCMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenViewController.m; sourceTree = "<group>"; };
+		D7EA2D481B08CE70007107CC /* BLCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLikeButton.h; sourceTree = "<group>"; };
+		D7EA2D491B08CE70007107CC /* BLCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLikeButton.m; sourceTree = "<group>"; };
+		D7EA2D4B1B08CFB1007107CC /* BLCCircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCircleSpinnerView.h; sourceTree = "<group>"; };
+		D7EA2D4C1B08CFB1007107CC /* BLCCircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCircleSpinnerView.m; sourceTree = "<group>"; };
 		E956C7808FF9033D85B10FA6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,10 +122,14 @@
 			isa = PBXGroup;
 			children = (
 				22167DB21AE6DF1900664102 /* Blocstagram */,
+				D7EA2D481B08CE70007107CC /* BLCLikeButton.h */,
+				D7EA2D491B08CE70007107CC /* BLCLikeButton.m */,
+				D7EA2D4B1B08CFB1007107CC /* BLCCircleSpinnerView.h */,
+				D7EA2D4C1B08CFB1007107CC /* BLCCircleSpinnerView.m */,
 				220758C81AED67980000CC71 /* BLCComment.h */,
+				220758C91AED67980000CC71 /* BLCComment.m */,
 				D790FEAF1B058881005F27E9 /* BLCMediaFullScreenViewController.h */,
 				D790FEB01B058881005F27E9 /* BLCMediaFullScreenViewController.m */,
-				220758C91AED67980000CC71 /* BLCComment.m */,
 				22167DE81AE86E6B00664102 /* BLCImagesTableViewController.h */,
 				22167DE91AE86E6B00664102 /* BLCImagesTableViewController.m */,
 				220758CB1AED682C0000CC71 /* BLCDatasource.h */,
@@ -365,10 +375,12 @@
 				22167DEA1AE86E6B00664102 /* BLCImagesTableViewController.m in Sources */,
 				220758CD1AED682C0000CC71 /* BLCDatasource.m in Sources */,
 				220758C71AED66F70000CC71 /* BLCMedia.m in Sources */,
+				D7EA2D4D1B08CFB1007107CC /* BLCCircleSpinnerView.m in Sources */,
 				D790FEB11B058881005F27E9 /* BLCMediaFullScreenViewController.m in Sources */,
 				22362BB71AEEF78700E67317 /* BLCMediaTableViewCell.m in Sources */,
 				220758CA1AED67980000CC71 /* BLCComment.m in Sources */,
 				D76D62851AFFBB1000773580 /* BLCLoginViewController.m in Sources */,
+				D7EA2D4A1B08CE70007107CC /* BLCLikeButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -185,6 +185,19 @@
             }
     }
 
+- (void) cellDidPressLikeButton:(BLCMediaTableViewCell *)cell {
+        BLCMedia *item = cell.mediaItem;
+    
+        [[BLCDatasource sharedInstance] toggleLikeOnMediaItem:item withCompletionHandler:^{
+                if (cell.mediaItem == item) {
+                        cell.mediaItem = item;
+                    }
+            }];
+    
+        cell.mediaItem = item;
+    }
+
+
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //return 300;
