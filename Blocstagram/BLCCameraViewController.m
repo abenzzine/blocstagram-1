@@ -29,10 +29,29 @@
 
 @implementation BLCCameraViewController
 
+#pragma mark - Build View Hierarchy
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+        [super viewDidLoad];
+        // Do any additional setup after loading the view.
+    
+        [self createViews];
+    }
+
+- (void) createViews {
+        self.imagePreview = [UIView new];
+        self.topView = [UIToolbar new];
+        self.bottomView = [UIToolbar new];
+        self.cameraToolbar = [[BLCCameraToolbar alloc] initWithImageNames:@[@"rotate", @"road"]];
+        self.cameraToolbar.delegate = self;
+        UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+        self.topView.barTintColor = whiteBG;
+        self.bottomView.barTintColor = whiteBG;
+        self.topView.alpha = 0.5;
+        self.bottomView.alpha = 0.5;
+    }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
