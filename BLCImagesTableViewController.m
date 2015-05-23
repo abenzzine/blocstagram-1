@@ -16,10 +16,13 @@
 #import "BLCComment.h"
 #import "BLCMediaTableViewCell.h"
 #import "BLCMediaFullScreenViewController.h"
+#import "BLCCameraViewController.h"
 
 
 
-@interface BLCImagesTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate>
+
+
+@interface BLCImagesTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, CameraViewControllerDelegate>
 
 @property (nonatomic, weak) UIImageView *lastTappedImageView;
 @property (nonatomic, weak) UIView *lastSelectedCommentView;
@@ -27,7 +30,7 @@
 
 @end
 
-@implementation BLCImagesTableViewController
+@implementation BLCImagesTableViewController 
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (object == [BLCDatasource sharedInstance] && [keyPath isEqualToString:@"mediaItems"]) {
@@ -103,6 +106,13 @@
     
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] ||
+                [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+                UIBarButtonItem *cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraPressed:)];
+                self.navigationItem.rightBarButtonItem = cameraButton;
+            }
+    
+
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                        selector:@selector(keyboardWillShow:)
                                                            name:UIKeyboardWillShowNotification
@@ -136,19 +146,19 @@
         CGFloat difference = commentViewY - keyboardY;
     
         if (difference > 0) {
-                heightToScroll += difference;
+                heightToScroll = difference;
             }
     
         if (CGRectIntersectsRect(keyboardFrameInViewCoordinates, commentViewFrameInViewCoordinates)) {
                 // The two frames intersect (the keyboard would block the view)
                 CGRect intersectionRect = CGRectIntersection(keyboardFrameInViewCoordinates, commentViewFrameInViewCoordinates);
-                heightToScroll += CGRectGetHeight(intersectionRect);
+                heightToScroll = CGRectGetHeight(intersectionRect);
             }
     
         if (heightToScroll > 0) {
-                contentInsets.bottom += heightToScroll;
-                scrollIndicatorInsets.bottom += heightToScroll;
-                contentOffset.y += heightToScroll;
+                contentInsets.bottom = heightToScroll;
+                scrollIndicatorInsets.bottom = heightToScroll;
+                contentOffset.y = heightToScroll;
         
                 NSNumber *durationNumber = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
                 NSNumber *curveNumber = notification.userInfo[UIKeyboardAnimationCurveUserInfoKey];
@@ -214,6 +224,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Camera and CameraViewControllerDelegate
+
+- (void) cameraPressed:(UIBarButtonItem *) sender {
+        BLCCameraViewController *cameraVC = [[BLCCameraViewController alloc] init];
+        cameraVC.delegate = self;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cameraVC];
+        [self presentViewController:nav animated:YES completion:nil];
+        return;
+    }
+
+- (void) BLCCameraViewController:(BLCCameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image {
+        [cameraViewController dismissViewControllerAnimated:YES completion:^{
+                if (image) {
+                        NSLog(@"Got an image!");
+                    } else {
+                            NSLog(@"Closed without an image.");
+                        }
+            }];
+    }
+
+
 
 #pragma mark - Table view data source
 
@@ -312,7 +344,7 @@
     
     BLCMedia *item = [BLCDatasource sharedInstance].mediaItems[indexPath.row];
     // UIImage *image = item.image;
-    //return 300 + image.size.height / image.size.width * CGRectGetWidth(self.view.frame);
+    //return 300  image.size.height / image.size.width * CGRectGetWidth(self.view.frame);
     return [BLCMediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
 }
 
@@ -328,7 +360,7 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        // Delete the row from the 
 //#warning the execution of the next line will cause the app to crash. use your ninja coding skills to solve it.
         BLCMedia *item = [BLCDatasource sharedInstance].mediaItems[indexPath.row];
         [[BLCDatasource sharedInstance] deleteMediaItem:item];

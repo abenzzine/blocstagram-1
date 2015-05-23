@@ -12,7 +12,7 @@
 
 @protocol CameraViewControllerDelegate <NSObject>
 
--(void) cameraViewController:(BLCCameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image;
+-(void) BLCCameraViewController:(BLCCameraViewController *)BLCCameraViewController didCompleteWithImage:(UIImage *)image;
 
 @end
 
