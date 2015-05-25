@@ -92,6 +92,7 @@
 		D744F1F11B12EB790011DE7F /* BLCCropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCropImageViewController.m; sourceTree = "<group>"; };
 		D744F1F31B1384F40011DE7F /* BLCImageLibraryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCImageLibraryCollectionViewController.h; path = Blocstagram/BLCImageLibraryCollectionViewController.h; sourceTree = "<group>"; };
 		D744F1F41B1384F40011DE7F /* BLCImageLibraryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCImageLibraryCollectionViewController.m; path = Blocstagram/BLCImageLibraryCollectionViewController.m; sourceTree = "<group>"; };
+		D744F1F61B139CBD0011DE7F /* BLCImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCImagesTableViewController.h; sourceTree = "<group>"; };
 		D751076D1B10DB3D0084B728 /* UIImage+BLCImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BLCImageUtilities.h"; sourceTree = "<group>"; };
 		D751076E1B10DB3D0084B728 /* UIImage+BLCImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BLCImageUtilities.m"; sourceTree = "<group>"; };
 		D76D62831AFFBB1000773580 /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 				220758C81AED67980000CC71 /* BLCComment.h */,
 				D790FEAF1B058881005F27E9 /* BLCMediaFullScreenViewController.h */,
 				D790FEB01B058881005F27E9 /* BLCMediaFullScreenViewController.m */,
+				D744F1F61B139CBD0011DE7F /* BLCImagesTableViewController.h */,
 				22167DE91AE86E6B00664102 /* BLCImagesTableViewController.m */,
 				220758CB1AED682C0000CC71 /* BLCDatasource.h */,
 				220758CC1AED682C0000CC71 /* BLCDatasource.m */,
