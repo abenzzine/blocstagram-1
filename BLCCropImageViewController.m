@@ -73,7 +73,6 @@
     }
 
 
-
 - (void) cropPressed:(UIBarButtonItem *)sender {
         CGRect visibleRect;
         float scale = 1.0f / self.scrollView.zoomScale / self.media.image.scale;

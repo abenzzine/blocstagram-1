@@ -82,6 +82,17 @@
     return self;
 }
 
+- (void) imageLibraryViewController:(BLCImageLibraryCollectionViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image {
+       [imageLibraryViewController dismissViewControllerAnimated:YES completion:^{
+                if (image) {
+                        NSLog(@"Got an image!");
+                    } else {
+                            NSLog(@"Closed without an image.");
+                       }
+            }];
+    }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
