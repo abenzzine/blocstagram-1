@@ -17,12 +17,10 @@
 #import "BLCMediaTableViewCell.h"
 #import "BLCMediaFullScreenViewController.h"
 #import "BLCCameraViewController.h"
+#import "BLCImageLibraryCollectionViewController.h"
 
 
-
-
-
-@interface BLCImagesTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, CameraViewControllerDelegate>
+@interface BLCImagesTableViewController () <MediaTableViewCellDelegate, UIViewControllerTransitioningDelegate, CameraViewControllerDelegate, ImageLibraryViewControllerDelegate>
 
 @property (nonatomic, weak) UIImageView *lastTappedImageView;
 @property (nonatomic, weak) UIView *lastSelectedCommentView;
@@ -225,15 +223,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Camera and CameraViewControllerDelegate
+#pragma mark - Camera, CameraViewControllerDelegate, and ImageLibraryViewControllerDelegate
 
 - (void) cameraPressed:(UIBarButtonItem *) sender {
-        BLCCameraViewController *cameraVC = [[BLCCameraViewController alloc] init];
-        cameraVC.delegate = self;
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:cameraVC];
-        [self presentViewController:nav animated:YES completion:nil];
-        return;
-    }
+    
+        UIViewController *imageVC;
+    
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                BLCCameraViewController *cameraVC = [[BLCCameraViewController alloc] init];
+                cameraVC.delegate = self;
+                imageVC = cameraVC;
+            } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+                    BLCImageLibraryCollectionViewController *imageLibraryVC = [[BLCImageLibraryCollectionViewController alloc] init];
+                    imageLibraryVC.delegate = self;
+                    imageVC = imageLibraryVC;
+                }
+    
+        if (imageVC) {
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:imageVC];
+                [self presentViewController:nav animated:YES completion:nil];
+            }
+        
+    return;
+}
+    
 
 - (void) BLCCameraViewController:(BLCCameraViewController *)cameraViewController didCompleteWithImage:(UIImage *)image {
         [cameraViewController dismissViewControllerAnimated:YES completion:^{
@@ -299,6 +312,7 @@
 
 
 #pragma mark - MediaTableViewCellDelegate
+
 
 - (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
         BLCMediaFullScreenViewController *fullScreenVC = [[BLCMediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
