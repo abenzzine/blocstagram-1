@@ -7,5 +7,12 @@
 //
 
 
+#import <UIKit/UIKit.h>
 
+#import "BLCImageLibraryCollectionViewController.h"
+
+
+@interface BLCImagesTableViewController : UITableViewController
+
+@end
 
