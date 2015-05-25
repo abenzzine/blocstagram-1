@@ -101,8 +101,9 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - CropImageViewControllerDelegate
 
 - (void) cropControllerFinishedWithImage:(UIImage *)croppedImage {
-        [self.delegate imageLibraryViewController:self didCompleteWithImage:croppedImage];
+       [self.delegate imageLibraryViewController:self didCompleteWithImage:croppedImage];
     }
+
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
